@@ -3,11 +3,12 @@
     "script" : "color_spectrum.py",
     "args" :
     {
-        "brightness" : 1.0,
-        "reverse" : true,
+        "brightness" : 0.8,
+        "saturation" : 0.7,
+        "reverse" : false,
         "magnitude-min": 0.0,
         "magnitude-max": 100.0,
-        "color-speed": 0,
+        "color-speed": 0.05,
         "mirror": false,
         "start-index": 0,
         "band-width-exp": 5,

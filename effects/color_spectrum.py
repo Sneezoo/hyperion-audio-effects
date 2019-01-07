@@ -32,6 +32,8 @@ class Effect(object):
         self.matrix = hyperion.args.get('matrix', False)
         self.debug = hyperion.args.get('debug', False)
 
+        self.color_progress = 0
+
         if self.mirror:
             print "Warning: 'mirror' mode needs a fix to flip the other side"
 
@@ -211,7 +213,13 @@ class Effect(object):
 
         ld = self._leds_data
         c = self._leds_data_center
-        i = abs(self.color_speed) * 3
+
+        i = abs(self.color_speed)
+        self.color_progress += i
+        if self.color_progress < 1:
+            return
+        i = int(self.color_progress)
+        self.color_progress = self.color_progress - i
         forward = self.color_speed > 0
         ld = self._leds_data
         l = len(ld)
